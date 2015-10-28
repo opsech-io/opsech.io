@@ -11,8 +11,8 @@ so I wrote this tiny script to help me understand what had changed and why (only
 
 It outputs a header for each updated package based on `dnf history info '*'` and highlights CVE updates in red (on the console) for higher visibility.
 
+<br />
 ```
-:::bash
 #!/bin/bash
 # Read in latest updated packages (post install) and show just most recent
 # changelog entries for those packages
