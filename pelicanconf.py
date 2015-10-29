@@ -27,7 +27,7 @@ THEME = 'pelican-twitchy'
 PYGMENTS_STYLE = "monokai"
 BOOTSTRAP_THEME = "slate"
 SHARE = True
-CUSTOM_CSS = "extra/codeblock_line_numbering.css"
+CUSTOM_CSS = "extra/custom.css"
 SOCIAL = (('Bitbucket','https://bitbucket.org/xenithorb'), 
 	('Github','https://github.com/xenithorb'))
 EXPAND_LATEST_ON_INDEX = True
