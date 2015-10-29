@@ -19,8 +19,8 @@ ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}.html'
 PAGE_URL = 'pages/{slug}.html'
 PAGE_SAVE_AS = 'pages/{slug}.html'
 NEWEST_FIRST_ARCHIVES = True
-
-
+FIGURE_NUMBERS = True
+RESPONSIVE_IMAGES = True
 #THEME = 'pelican-blueidea'
 # https://github.com/ingwinlu/pelican-twitchy
 THEME = 'pelican-twitchy'
