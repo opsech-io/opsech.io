@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = '//opsech.io'
+SITEURL = 'https://opsech.io'
 RELATIVE_URLS = False
 #RELATIVE_URLS = True
 

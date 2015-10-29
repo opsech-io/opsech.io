@@ -12,12 +12,19 @@ so I wrote this tiny script to help me understand what had changed and why (only
 It outputs a header for each updated package based on `dnf history info '*'` and highlights CVE updates in red (on the console) for higher visibility.
 
 <br />
+
+Usage `bash dnf_changelog.sh [<history id>]` 
+
+<br />
+
 ```
 #!/bin/bash
 # Read in latest updated packages (post install) and show just most recent
 # changelog entries for those packages
 #set -ux 
-sudo dnf history info last \
+LAST_UPDATE=$( sudo dnf history | awk -F'|' '$4 ~ /([ ]+U|Update)/{print $1; exit}' ) 
+
+sudo dnf history info ${1:-${LAST_UPDATE}} \
 	| awk '/Upgraded[ ]+/{ gsub("[-][0-9]*[-]?[0-9]+[.:].*","",$2); pkg = $2 } /Upgrade[ ]+/{ OFS=""; print pkg,"-",$2 }' \
 	| while read -r a; do
 		count=0
@@ -41,5 +48,9 @@ sudo dnf history info last \
 
 			  done
 	  done \
-	| less -r
+	| less -r  
 ```
+
+<br />
+
+![dnf_changelog.sh](/images/dnf_changelog.png)
