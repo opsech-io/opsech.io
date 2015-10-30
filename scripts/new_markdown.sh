@@ -26,7 +26,8 @@ for i in ${!IN_VARS[@]}; do
 	declare -a output input
 	PROMPT_VAR="${IN_VARS[i],,}"
 	PROMPT_VAR="${PROMPT_VAR^}" 
-	read -p "${PROMPT_VAR}: " "input[$i]"
+	read -p "${PROMPT_VAR}: " "input[$i]" 
+	[[ ${input[i]} ]] &&
 	output[$i]="${PROMPT_VAR}: ${input[i]}" 
 done
 
@@ -49,4 +50,4 @@ else
 	print_array_newline output >> "${FILE}" 
 fi
 
-vim "${FILE}" -- 'Ggi'
+vim +$ +start "${FILE}"
