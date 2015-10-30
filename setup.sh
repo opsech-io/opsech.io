@@ -10,7 +10,8 @@ set -eu
 DNF_INSTALL=(
 	python{,-virtualenv{,wrapper},-devel}
 	libjpeg-turbo-devel 
-	zlib-devel	
+	zlib-devel
+	s3cmd	
 )
 
 # pip package install array
@@ -43,3 +44,9 @@ git submodule update --init --recursive
 # We probably don't want that, so let's update everything to master
 git submodule foreach --recursive 'git checkout master; git pull'
 
+# Setup s3cmd
+# Go get ACCESS_KEY and SECRET_ACCESS_KEY that 
+# Can R/W to the proper site bucket! 
+# _MUST_ be the same name as the domain if you intend 
+# to serve your content with S3 as the static server!
+s3cmd --configure
