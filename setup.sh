@@ -4,6 +4,7 @@
 # website. Currently only supports Fedora (DNF)
 #
 # Author: Michael Goodwin
+set -eu
 
 # dnf package install array
 DNF_INSTALL=(
@@ -26,6 +27,8 @@ sudo dnf install "${DNF_INSTALL[@]}"
 
 # Setup python virtual environment for working with pelican 
 (
+set +u
+mkdir -p ~/virtualenvs
 virtualenv ~/virtualenvs/pelican
 source ~/virtualenvs/pelican/bin/activate
 pip install "${PIP_INSTALL[@]}"
