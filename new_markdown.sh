@@ -48,3 +48,5 @@ if [[ -f ${FILE} ]]; then
 else
 	print_array_newline output >> "${FILE}" 
 fi
+
+vim "${FILE}" -- 'Ggi'
