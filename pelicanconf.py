@@ -8,7 +8,7 @@ SITEURL = ''
 SITESUBTITLE = "Random wanderings of a Linux traveller"
 
 PATH = 'content'
-PLUGIN_PATHS = ["../pelican-plugins"] 
+PLUGIN_PATHS = ["plugins/pelican-plugins"] 
 PLUGINS = ["better_codeblock_line_numbering","better_figures_and_images"]
 CHECK_MODIFIED_METHOD = "mtime"
 TIMEZONE = 'America/New_York'
@@ -21,9 +21,8 @@ PAGE_SAVE_AS = 'pages/{slug}.html'
 NEWEST_FIRST_ARCHIVES = True
 FIGURE_NUMBERS = True
 RESPONSIVE_IMAGES = True
-#THEME = 'pelican-blueidea'
 # https://github.com/ingwinlu/pelican-twitchy
-THEME = 'pelican-twitchy'
+THEME = 'themes/pelican-twitchy'
 PYGMENTS_STYLE = "monokai"
 BOOTSTRAP_THEME = "slate"
 SHARE = True
