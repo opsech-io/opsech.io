@@ -2,6 +2,7 @@
 ##
 # This section should match your Makefile
 ##
+. ./venv_start.sh
 PY=${PY:-python}
 PELICAN=${PELICAN:-pelican}
 PELICANOPTS=

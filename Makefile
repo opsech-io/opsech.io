@@ -87,13 +87,13 @@ endif
 
 devserver:
 ifdef PORT
-	$(BASEDIR)/develop_server.sh restart $(PORT)
+	$(BASEDIR)/scripts/develop_server.sh restart $(PORT)
 else
-	$(BASEDIR)/develop_server.sh restart
+	$(BASEDIR)/scripts/develop_server.sh restart
 endif
 
 stopserver:
-	$(BASEDIR)/develop_server.sh stop
+	$(BASEDIR)/scripts/develop_server.sh stop
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
