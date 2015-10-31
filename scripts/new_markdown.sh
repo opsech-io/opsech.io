@@ -4,9 +4,11 @@
 #
 # Author: Michael Goodwin
 set -eux
-
-# Get content location, assumes: ./<content_path>/articles/<year>
-CONTENT_LOC="$( awk -F"[ =\'\"]" '$1 == "PATH" {print $5}' < pelicanconf.py )/articles/$(date +'%Y')" 
+PELICAN_DIR=".."
+CONTENT_DIR="$( awk -F"[ =\'\"]" '$1 == "PATH" {print $5}' < "${PELICAN_DIR}/pelicanconf.py" )"
+ARTICLES_DIR="articles"
+YEAR="$(date +'%Y')"
+CONTENT_LOC="${PELICAN_DIR}/${CONTENT_DIR}/${ARTICLES_DIR}/${YEAR}" 
 
 # Header varibles to get from the user
 IN_VARS=(
@@ -54,7 +56,7 @@ if [[ -f ${FILE} ]]; then
 	read -rp "File \"${FILE}\" exists, overwrite? [y/N]" -N1 overwrite_choice 
 	case "$overwrite_choice" in
 		[Yy])
-			print_array_newline output >> "${FILE}"
+			print_array_newline output > "${FILE}"
 		;;
 		[Nn?])
 			echo "Ok. Keeping old file. Current will be saved as ${FILE}-saved"

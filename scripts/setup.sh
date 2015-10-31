@@ -5,6 +5,7 @@
 #
 # Author: Michael Goodwin
 set -eu
+PELICAN_DIR=".."
 
 # dnf package install array
 DNF_INSTALL=(
@@ -38,15 +39,19 @@ pip install "${PIP_INSTALL[@]}"
 # We need to pull in the long tree of plugins recursively
 # Since the pelican-plugins git project also links to some 
 # plugins as submodules. 
+(
+cd "${PELICAN_DIR}"
 git submodule update --init --recursive
 
 # The project tends to point to certain commits, but
 # We probably don't want that, so let's update everything to master
 git submodule foreach --recursive 'git checkout master; git pull'
-
+)
 # Setup s3cmd
 # Go get ACCESS_KEY and SECRET_ACCESS_KEY that 
 # Can R/W to the proper site bucket! 
 # _MUST_ be the same name as the domain if you intend 
 # to serve your content with S3 as the static server!
-s3cmd --configure
+if [[ ! -e ~/.s3cfg ]]; then
+	s3cmd --configure
+fi 
