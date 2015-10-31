@@ -1,5 +1,5 @@
 PY?=python
-PELICAN?=source ./venv_start.sh && pelican
+PELICAN?=source ./scripts/venv_start.sh && pelican
 PELICANOPTS=
 
 BASEDIR=$(CURDIR)
