@@ -21,7 +21,7 @@ IN_VARS=(
 # This use case allows for two linebreaks after output
 # because we want a space between header and article body.
 print_array_newline() {
-	eval printf \"%s\\n\" \"\${$1[@]}\"
+	eval printf \"%s\\n\" \"\$\{"${1}"[@]\}\"
 	echo -en "\n\n" 
 }
 
@@ -32,11 +32,11 @@ print_array_newline() {
 # Could have probably avoided that by requring normal case IN_VARS elements
 # (i.e. "Title" instead of "TITLE"), but this way negates the need to worry 
 # about case altogether. 
-for i in ${!IN_VARS[@]}; do
+for i in "${!IN_VARS[@]}"; do
 	declare -a output input
 	PROMPT_VAR="${IN_VARS[i],,}"    	   # To lowercase 
 	PROMPT_VAR="${PROMPT_VAR^}"     	   # To first char upper case
-	read -p "${PROMPT_VAR}: " "input[$i]" 
+	read -rp "${PROMPT_VAR}: " "input[$i]" 
 	[[ ${input[i]} ]] &&    		   # Skip appending to the array if null
 	output[$i]="${PROMPT_VAR}: ${input[i]}"    # Save the entier header line
 done
@@ -51,7 +51,7 @@ TITLE=$( awk -F': ' '$1 == "Title" { gsub(" ","_",$2); print $2 }' < <( print_ar
 FILE="${CONTENT_LOC}/${TITLE,,}.md"
 
 if [[ -f ${FILE} ]]; then 
-	read -p "File \"${FILE}\" exists, overwrite? [y/N]" -N1 overwrite_choice 
+	read -rp "File \"${FILE}\" exists, overwrite? [y/N]" -N1 overwrite_choice 
 	case "$overwrite_choice" in
 		[Yy])
 			print_array_newline output >> "${FILE}"
