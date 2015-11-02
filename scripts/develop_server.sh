@@ -2,15 +2,16 @@
 ##
 # This section should match your Makefile
 ##
-. ./venv_start.sh
 PY=${PY:-python}
 PELICAN=${PELICAN:-pelican}
 PELICANOPTS=
 
-BASEDIR=$(pwd)
+BASEDIR="$(dirname $0)/.."
 INPUTDIR=$BASEDIR/content
 OUTPUTDIR=$BASEDIR/output
 CONFFILE=$BASEDIR/pelicanconf.py
+
+source "$(dirname $0)/venv_start.sh"
 
 ###
 # Don't change stuff below here unless you are sure
