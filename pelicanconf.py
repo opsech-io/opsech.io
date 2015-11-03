@@ -8,7 +8,9 @@ SITEURL = ''
 SITESUBTITLE = "Random wanderings of a Linux traveller"
 
 PATH = 'content'
-PLUGIN_PATHS = ["plugins/pelican-plugins"] 
+PLUGIN_PATHS = ["plugins/pelican-plugins"]
+STATIC_PATHS = ['images','extra']
+IGNORE_FILES = ['*.swp','*.kate-swp']
 PLUGINS = ["better_codeblock_line_numbering","better_figures_and_images"]
 CHECK_MODIFIED_METHOD = "mtime"
 TIMEZONE = 'America/New_York'
@@ -18,8 +20,8 @@ ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}.html'
 PAGE_URL = 'pages/{slug}.html'
 PAGE_SAVE_AS = 'pages/{slug}.html'
-NEWEST_FIRST_ARCHIVES = True
-FIGURE_NUMBERS = True
+#NEWEST_FIRST_ARCHIVES = True
+#FIGURE_NUMBERS = True
 RESPONSIVE_IMAGES = True
 # https://github.com/ingwinlu/pelican-twitchy
 THEME = 'themes/pelican-twitchy'
@@ -27,13 +29,14 @@ PYGMENTS_STYLE = "monokai"
 BOOTSTRAP_THEME = "slate"
 SHARE = True
 CUSTOM_CSS = "extra/custom.css"
-SOCIAL = (('Bitbucket','https://bitbucket.org/xenithorb'), 
+SOCIAL = (('Bitbucket','https://bitbucket.org/xenithorb'),
 	('Github','https://github.com/xenithorb'))
 EXPAND_LATEST_ON_INDEX = True
 DISQUS_LOAD_LATER = True
-DISPLAY_TAGS_ON_MENU = False
+DISPLAY_TAGS_ON_MENU = True
+#DISPLAY_TAGS_INLINE = True
 DISPLAY_RECENT_POSTS_ON_MENU = True
-STATIC_PATHS = ['images', 'extra'] 
+CC_LICENSE = "CC-BY-NC-SA"
 # End pelican-twitchy specific settings
 
 # Feed generation is usually not desired when developing

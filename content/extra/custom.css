@@ -13,31 +13,29 @@ code {
 
 .highlight pre {
     counter-reset: linecounter;
-    padding-left: 2em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: .75em;
+    padding-bottom: .75em;
 }
 .highlight pre span.code-line {
     counter-increment: linecounter;
-    padding-left: 1em;
+    padding-right: 1em;
     text-indent: -1em;
     display: inline-block;
 }
 .highlight pre span.code-line:before {
     content: counter(linecounter);
     padding-right: 1em;
-    display: inline-block;
+    padding-left: 1em;
+    display: inline;
     color: grey;
-    text-align: right;
 }
-code { 
-	color: #FFA336 !important; 
-	background-color: #272822 !important;
-	border: 1px solid #666 !important;
-	padding-top: 4px !important;
-	padding-bottom: 4px !important; 
+code {
+    color: #FFA336;
+    background-color: #272822 !important;
+    padding: .20em !important;
 }
-
-pre {
-	border: 1px solid #666 !important;
-	padding-top: 5px !important;
-	padding-bottom: 5px !important;
+pre, code {
+    border: 1px solid #666 !important;
 }

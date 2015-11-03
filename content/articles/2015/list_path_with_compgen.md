@@ -10,22 +10,20 @@ Ever wondered how to get a list of what your bash tab-completion will output?
 I tend to find this most useful when I have a brain failure and can't remember what I'm looking for. Searching
 through your tab-completion with regex can be useful: 
 
-<br />
-
 ```bash
 # get a raw list of tab-complete commands and search through them yourself
-compgen -c | egrep "<some_regex>"  
+compgen -c | egrep "<some_regex>"
 
-# Analogous to `compgen -c | grep "^<word>"` 
+# Analogous to `compgen -c | grep "^<word>"`
 # List commands that begin with <word>
 compgen -c <word>
 
-# List bash built-ins 
+# List bash built-ins
 compgen -b
 
-# List all environment functions 
-compgen -A function 
+# List all environment functions
+compgen -A function
 
 # Bonus! List functions and their source code:
-typeset -f [<function_name>] 
+typeset -f [<function_name>]
 ```
