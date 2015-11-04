@@ -4,6 +4,7 @@ Tags: aws, cloudfront, s3
 Slug: s3cmd-sync-and-cf-invalidation
 Summary: How to use s3cmd to upload static content (in this case, generated with pelican) and have s3cmd do the heavy lifting with also invalidating CloudFront paths for you.
 Date: Mon Nov  2 19:51:32 EST 2015
+Status: published
 
 Recently, working with [`s3cmd`][1] has been difficult because the command suffers from a lack of documentation regarding the policy requirements that the software needs to perform its duties. The following is a policy configuration for *S3* and *CloudFront* that enumerate what I *hope* are the minimum requirements that s3cmd needs to deploy a static site to S3 while also invalidating CloudFront paths at the same time. I merely established these policies through trial and error.
 

@@ -14,9 +14,12 @@ code {
 .highlight pre {
     counter-reset: linecounter;
     margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     padding-top: .75em;
     padding-bottom: .75em;
+      -moz-box-shadow: 3px 3px 5px 6px rgba(0,0,0,.1);
+-webkit-box-shadow: 3px 3px 5px 6px rgba(0,0,0,.1);
+        box-shadow: 3px 3px 5px 6px rgba(0,0,0,.1);
 }
 .highlight pre span.code-line {
     counter-increment: linecounter;
@@ -38,4 +41,44 @@ code {
 }
 pre, code {
     border: 1px solid #666 !important;
+}
+.fig {
+	max-width: 100%;
+	display: inline-block;
+	padding: 0;
+	margin-bottom: 2rem;
+   -moz-box-shadow: 3px 3px 5px 6px rgba(0,0,0,.1);
+-webkit-box-shadow: 3px 3px 5px 6px rgba(0,0,0,.1);
+        box-shadow: 3px 3px 5px 6px rgba(0,0,0,.1);
+	border: 1px solid #666;
+}
+.fig > * {
+	display: block;
+}
+.fig img {
+	/*min-width: 100%;*/
+	border-bottom: 1px solid #666;
+}
+.fig em {
+	margin: .5em;
+}
+div.col-lg-12 h1 {
+	text-shadow: 2px 2px 3px rgba(0,0,0,.1);
+}
+.jumbotron {
+	padding: 1rem !important;
+	margin-bottom: 2rem;
+}
+.jumbotron h1,
+.jumbotron p {
+	margin-bottom: 1rem !important;
+	text-align: center;
+}
+h2,.h2 {
+	font-size: 26px;
+}
+.entry-content > p,
+footer > p
+{
+	clear: both;
 }

@@ -1,6 +1,7 @@
 Title: About Me
+Status: hidden
 
-# Hi. 
-- - - 
+# Hi.
+- - -
 
-Some stuff about me 
+Some stuff about me

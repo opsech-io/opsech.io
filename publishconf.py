@@ -12,14 +12,16 @@ from pelicanconf import *
 
 SITEURL = 'https://opsech.io'
 RELATIVE_URLS = False
-#RELATIVE_URLS = True
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
+FEED_ALL_RSS = 'feeds/all.rss.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
-
-# Following items are often useful when publishing
-
 DISQUS_SITENAME = "opsech"
-#GOOGLE_ANALYTICS = ""
+
+# Below is for making sure that only "Status: published" articles go live.
+DEFAULT_METADATA = {
+	'Status':'draft',
+	}

@@ -5,6 +5,7 @@ Category: scripts
 Tags: linux, fedora, dnf
 Slug: dnf-updates-changelog
 Summary: A simple script for reading the latest changelog entries for dnf (and therefore rpm) packages.
+Status: published
 
 DNF seems to be missing a proper [yum-changelog](http://linux.die.net/man/1/yum-changelog) plugin,
 so I wrote this tiny script to help me understand what had changed and why (only works after installed).
@@ -52,3 +53,6 @@ sudo dnf history info ${1:-${LAST_UPDATE}} \
 Example output:
 
 ![dnf_changelog.sh]({filename}/images/dnf_changelog.png)
+*Here's an example of my last update, here you can see the titles are green and any CVEs mentioned in the log will be highlighted red.*
+{:.fig .h6}
+

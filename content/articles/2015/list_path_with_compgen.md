@@ -4,11 +4,12 @@ Tags: bash, tips
 Slug: list-path-with-compgen
 Summary: Learn how to list your bash $PATH with compgen
 Date: Mon Nov  2 10:31:27 EST 2015
+Status: published
 
 Ever wondered how to get a list of what your bash tab-completion will output?
 
 I tend to find this most useful when I have a brain failure and can't remember what I'm looking for. Searching
-through your tab-completion with regex can be useful: 
+through your tab-completion with regex can be useful:
 
 ```bash
 # get a raw list of tab-complete commands and search through them yourself
