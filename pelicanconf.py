@@ -11,7 +11,8 @@ PATH = 'content'
 PLUGIN_PATHS = ["plugins/pelican-plugins"]
 STATIC_PATHS = ['images','extra']
 IGNORE_FILES = ['*.swp','*.kate-swp']
-PLUGINS = ["better_codeblock_line_numbering","better_figures_and_images"]
+#PLUGINS = ["better_codeblock_line_numbering","better_figures_and_images"]
+PLUGINS = ["better_codeblock_line_numbering"]
 CHECK_MODIFIED_METHOD = "mtime"
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = u'en'
@@ -55,7 +56,17 @@ RELATIVE_URLS = True
 TYPOGRIFY = True
 
 # For better_codeblock_line_numbering plugin
+#MD_EXTENSIONS = [
+#    'codehilite(css_class=highlight,linenums=False)',
+#    'extra',
+#    ]
+
+from markdown.extensions.codehilite import CodeHiliteExtension
+from markdown.extensions.toc import TocExtension
+
 MD_EXTENSIONS = [
-    'codehilite(css_class=highlight,linenums=False)',
-    'extra'
-    ]
+    CodeHiliteExtension(css_class='highlight', linenums=False),
+    TocExtension(permalink=True),
+    'markdown.extensions.extra',
+    'markdown.extensions.figureAltCaption',
+]

@@ -4,3 +4,6 @@
 [submodule "themes/pelican-twitchy"]
 	path = themes/pelican-twitchy
 	url = https://github.com/ingwinlu/pelican-twitchy.git
+[submodule "fig_alt_caption"]
+	path = plugins/markdown-plugins/fig_alt_caption
+	url = https://github.com/jdittrich/figureAltCaption.git
