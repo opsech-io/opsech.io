@@ -6,7 +6,7 @@ Summary: How to use s3cmd to upload static content (in this case, generated with
 Date: Mon Nov  2 19:51:32 EST 2015
 Status: published
 
-Recently, working with [`s3cmd`][1] has been difficult because the command suffers from a lack of documentation regarding the policy requirements that the software needs to perform its duties. The following is a policy configuration for *S3* and *CloudFront* that enumerate what I *hope* are the minimum requirements that s3cmd needs to deploy a static site to S3 while also invalidating CloudFront paths at the same time. I merely established these policies through trial and error.
+Recently, working with [`s3cmd`][1] has been difficult because the command suffers from a lack of documentation regarding the AWS policy requirements the software needs to perform its duties. The following is a policy configuration for *S3* and *CloudFront* that enumerates what I *hope* are the minimum requirements that s3cmd needs to deploy a static site to S3 while also invalidating CloudFront paths at the same time. I established these policies through trial and error.
 
 [1]:http://s3tools.org/download
 

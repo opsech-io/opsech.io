@@ -3,7 +3,7 @@ Category: linux
 Tags: linux, nouveau, nvidia, vizio, xorg, X11
 Slug: nouveau-custom-modes-xrandr
 Date: Tue Nov  3 14:34:21 EST 2015
-
+Status: Published
 
 If you've found this intentionally, I don't have to explain why you want this infomation, so
 just skip down to the code snippet area. For everyone else, I'm sure you probably
@@ -15,10 +15,7 @@ Basically it means that all of the color information is being passed through to
 the display panel without being compressed. A technical explanation is best found
 at the above link.
 
-![LCD Chroma Test]({filename}/images/lcd_chroma_test.png "*Here is an example of a quick test you can look at to detect if proper chroma
-information is being passed. If the red looks blury instead of like all the other
-lines, you are probably looking at 4:2:2 or worse.*")
-{:.fig .h6}
+![Here is an example of a quick test you can look at to detect if proper chroma information is being passed. If the red looks blury instead of like all the other lines, you are probably looking at 4:2:2 or worse.]({filename}/images/lcd_chroma_test.png)
 
 There's a "bug" or "feature" in some VIZIO TV's where if you push the pixel clock
 past a certain normal level, it causes the TV's firmware to put it into
@@ -26,22 +23,14 @@ a custom resolution mode. You can tell this because when you press the "guide"
 button on the TV remote, **you will see a custom resolution** that looks more like
 something you see on a comptuer, instead of the familiar "1080p", "720p" etc.
 
-
-
-
-Footnotes[^1] have a label[^@#$%] and the footnote's content.
-
-[^1]: This is a footnote content.
-[^@#$%]: A footnote on the label: "@#$%".
-
-
 Example:
 
-![VIZIO TV Header]({filename}/images/vizio_tv_header.jpg)
-*See the "1920x1080" above.*
-{:.fig .h6}
+![See the "1920x1080" above.]({filename}/images/vizio_tv_header.jpg)
 
-First, test to see if your mode works for you. This is "61Hz" for a 50" D500i:
+First, test to see if your mode works for you. After executing the following commands,
+the screen should blank and assume the new refresh rate after the `--output` command.
+
+This is "61Hz" for a 50" D500i:
 
 ```bash
 xrandr --newmode "1920x1080_61" 151 1920 2008 2052 2200 1080 1084 1089 1125 +Hsync +Vsync
@@ -78,3 +67,5 @@ Section "Device"
         Option "Monitor-HDMI-1" "Monitor0"
 EndSection
 ```
+
+You should now be able to start your favorite DE and set the mode/refresh manually if it hasn't already done so.

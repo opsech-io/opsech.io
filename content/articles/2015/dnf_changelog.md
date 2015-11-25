@@ -52,7 +52,5 @@ sudo dnf history info ${1:-${LAST_UPDATE}} \
 
 Example output:
 
-![dnf_changelog.sh]({filename}/images/dnf_changelog.png)
-*Here's an example of my last update, here you can see the titles are green and any CVEs mentioned in the log will be highlighted red.*
-{:.fig .h6}
+![Here's an example of my last update, here you can see the titles are green and any CVEs mentioned in the log will be highlighted red.]({filename}/images/dnf_changelog.png)
 
