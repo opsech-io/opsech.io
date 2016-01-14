@@ -21,6 +21,9 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 DELETE_OUTPUT_DIRECTORY = True
 DISQUS_SITENAME = "opsech"
 
+PIWIK_URL = '//opsech-io.piwikpro.com/'
+PIWIK_SITE_ID = 1
+
 # Below is for making sure that only "Status: published" articles go live.
 DEFAULT_METADATA = {
 	'Status':'draft',
