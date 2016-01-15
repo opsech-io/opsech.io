@@ -82,6 +82,10 @@ if [[ -f ${FILE} ]]; then
 		;;
 	esac
 else
+	if [[ ! -d ${CONTENT_LOC} ]]; then
+		echo "Dir \"${CONTENT_LOC}\", doesn't exist! Creating.." 
+		mkdir -p "${CONTENT_LOC}" 
+	fi
 	print_array_newline output >> "${FILE}"
 fi
 
