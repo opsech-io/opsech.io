@@ -9,7 +9,7 @@ SITESUBTITLE = "Random wanderings of a Linux traveller"
 
 PATH = 'content'
 PLUGIN_PATHS = ["plugins/pelican-plugins"]
-STATIC_PATHS = ['images','extra']
+STATIC_PATHS = ['images','extra','favs']
 IGNORE_FILES = ['*.swp','*.kate-swp']
 #PLUGINS = ["better_codeblock_line_numbering","better_figures_and_images"]
 PLUGINS = ["better_codeblock_line_numbering"]
