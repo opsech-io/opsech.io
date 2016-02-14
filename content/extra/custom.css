@@ -95,3 +95,6 @@ footer > p
 {
 	clear: both;
 }
+.highlight pre .s {
+	color: #e6db74 !important 
+}
