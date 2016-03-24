@@ -24,12 +24,14 @@ code {
     margin-right: auto;
     max-width: 100%
 }
+
 .highlight pre span.code-line {
     counter-increment: linecounter;
     padding-right: 1em;
     text-indent: -1em;
     display: inline-block;
 }
+
 .highlight pre span.code-line:before {
     content: counter(linecounter);
     padding-right: 1em;
@@ -37,15 +39,18 @@ code {
     display: inline;
     color: grey;
 }
+
 code {
     color: #FFA336;
     background-color: #272822 !important;
     padding: .20rem !important;
 }
+
 pre, code {
     border: 1px solid #666 !important;
 }
-figure {
+
+figure, .gist-file {
 /*	width: 1px;*/
 	max-width: 100%;
 	margin-bottom: 1.5rem;
@@ -58,14 +63,16 @@ figure {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 figure img {
-/*	border-bottom: 1px solid #666;*/
 	display: table-row;
 	width: 100%;
 }
+
 img {
 	max-width: 100%;
 }
+
 figure figcaption {
 	padding: .5rem;
 	padding-bottom: 0;
@@ -73,28 +80,59 @@ figure figcaption {
 	caption-side: bottom;
 	font-size: .85em;
 	font-style: italic;
-/*	text-align: center;*/
 }
+
 div.col-lg-12 h1 {
 	text-shadow: 2px 2px 3px rgba(0,0,0,.1);
 }
+
 .jumbotron {
 	padding: 1rem !important;
 	margin-bottom: 2rem;
 }
-.jumbotron h1,
-.jumbotron p {
+
+.jumbotron h1, .jumbotron p {
 	margin-bottom: 1rem !important;
 	text-align: center;
 }
+
 h2,.h2 {
 	font-size: 26px;
 }
-.entry-content > p,
-footer > p
-{
+
+.entry-content > p, footer > p {
 	clear: both;
 }
-.highlight pre .s {
-	color: #e6db74 !important 
+
+// Holy fuck here we go now themeing Github Gists :|
+//
+.highlight pre .s, .gist .highlight, .gist .blob-code-inner {
+	color: #e6db74 !important; 
+}
+
+.gist .highlight, .gist-meta, .gist-data {
+	background-color: rgb(39, 40, 34) !important;
+	color: rgb(128, 128, 128) !important;
+	border: 0px !important;
+}
+
+.gist-meta {
+	border-top: 1px solid #666 !important;
+}
+
+.gist .blob-num {
+	border: 0px !important;
+	color: rgb(128, 128, 128) !important;
+}
+
+.gist .pl-smi, .gist .js-file-line {
+	color: rgb(200, 200, 200) !important;
+}
+
+.gist .pl-s, .pl-pds {
+	color: rgb(102, 217, 239) !important;
+}
+ 
+.gist-file {
+	border: 1px solid #666 !important;
 }
