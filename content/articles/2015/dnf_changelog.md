@@ -9,15 +9,15 @@ Summary: A simple script for reading the latest changelog entries for dnf (and t
 DNF seems to be missing a proper [yum-changelog](http://linux.die.net/man/1/yum-changelog) plugin, 
 so I wrote this tiny script to help me understand what had changed and why (only works after installed).
 
-It outputs a header for each updated package based on `dnf history info '*'` and highlights CVE updates in red (on the console) for higher visibility.
+*[DNF]: Dandified Yum
 
-<br />
+It outputs a header for each updated package based on `dnf history info '*'` and highlights CVE updates in red (on the console) for higher visibility.
 
 Usage `bash dnf_changelog.sh [<history id>]` 
 
 <br />
 
-```
+```bash
 #!/bin/bash
 # Read in latest updated packages (post install) and show just most recent
 # changelog entries for those packages
@@ -50,7 +50,8 @@ sudo dnf history info ${1:-${LAST_UPDATE}} \
 	  done \
 	| less -r  
 ```
-
 <br />
 
-![dnf_changelog.sh](/images/dnf_changelog.png)
+![dnf_changelog.sh]({filename}/images/dnf_changelog.png)
+
+-----
