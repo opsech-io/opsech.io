@@ -17,6 +17,7 @@ DNF_INSTALL=(
 
 # pip package install array
 PIP_INSTALL=(
+	pelican
 	markdown
 	pillow
 	beautifulsoup4
@@ -33,7 +34,7 @@ set +u
 mkdir -p ~/virtualenvs
 virtualenv ~/virtualenvs/pelican
 source ~/virtualenvs/pelican/bin/activate
-pip install "${PIP_INSTALL[@]}"
+pip install --upgrade "${PIP_INSTALL[@]}"
 )
 
 # We need to pull in the long tree of plugins recursively
