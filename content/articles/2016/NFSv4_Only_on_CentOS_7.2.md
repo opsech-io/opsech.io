@@ -17,7 +17,13 @@ One interesting aspect is that since this a kernel-space daemon, some commands, 
 
 <br />
 
-1. Open up `/etc/sysconfig/nfs` in your favorite editor and change the following:
+
+1. Install nfs-utils via yum, as this installs the necessary systemd units and basically everything you need to work with the kernel NFS server:
+
+		:::bash
+		yum install nfs-utils
+
++ Open up `/etc/sysconfig/nfs` in your favorite editor and change the following:
 
 		:::bash
 		RPCNFSDARGS=""
@@ -56,6 +62,8 @@ using `/etc/sysconfig/nfs` as the `EnvironmentFile=` directly for `nfs-server.se
 
 		:::bash
 		systemctl start nfs-server.service
+		# If you want it permanently
+		systemctl enable --now nfs-server.service
 	Hopefully your service started. If you have the following error:
 	`rpc.nfsd: unable to set any sockets for nfsd`
 	Then your nfsd is still looking for `rpcbind` - try making sure you have the
