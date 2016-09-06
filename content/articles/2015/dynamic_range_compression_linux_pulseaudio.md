@@ -5,7 +5,7 @@ Slug: dynamic-range-compression-linux-pulseaudio
 Summary: Showcasing an easy way to enable DRC-like LADSPA-plugin functionality
 Date: Fri Nov  6 14:21:06 EST 2015
 Modified: Sun Jan 17 18:49:51 EST 2016
-Status: Published
+Status: published
 
 One of the few things greatly missed from my time using Windows as a media PC was
 its easy ability to enable DRC. This is a post-processing effect that basically

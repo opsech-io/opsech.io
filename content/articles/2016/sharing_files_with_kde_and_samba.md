@@ -4,7 +4,7 @@ Tags: linux, samba, filesharing, kde
 Slug: sharing-files-with-kde-and-samba
 Summary: How to share files with samba usershares and KDE Dolphin file manager (KF5/Plasma 5) - used in the context of sharing for usermode virt-manager guests.
 Date: Wed Apr  6 00:42:41 EDT 2016
-Status: Published
+Status: published
 
 First a little prologue: I first found a need for this because of virt-manager/libvirt's lacking support for a file-sharing mechanism. According to the Archlinux wiki, [there's even a default way for qemu to set this up for you][1], but it's not available to configure by default with libvirt or virt-manager for that matter.
 

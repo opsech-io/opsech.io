@@ -2,7 +2,7 @@ Title: NFSv4-Only on CentOS 7.2
 Category: linux
 Tags: nfs, centos, systemd
 Date: Tue Jan 26 15:52:10 EST 2016
-Status: Published
+Status: published
 
 The road to a NFSv4 only server is not very clearly documented on the internet
 regarding Fedora/CentOS 7 - as the move to systemd has changed some operations of

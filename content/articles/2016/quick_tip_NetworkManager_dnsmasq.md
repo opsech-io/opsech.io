@@ -2,7 +2,7 @@ Title: Quick Tip: Enable easy NetworkManager local DNS caching
 Category: quick-tips
 Tags: fedora, dns, linux, quick-tips
 Date: Sun Feb 14 06:50:15 EST 2016
-Status: Published
+Status: published
 
 
 To enable NetworkManager's feature to start `dnsmasq` and enable dns caching:

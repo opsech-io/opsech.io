@@ -4,7 +4,7 @@ Tags: fedora, linux, quick-tips, systemd
 Slug: fedora-systemd-lingering-process-fix
 Summary: Small tip to help after logging out of your Xsession to make sure lingering processes are killed
 Date: Fri Jan 15 12:31:21 EST 2016
-Status: Published
+Status: published
 
 Annoyed by lingering processes after you logout of a Plasma or GNOME session?
 

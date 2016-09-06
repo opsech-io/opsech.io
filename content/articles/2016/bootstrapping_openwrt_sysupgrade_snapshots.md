@@ -3,7 +3,7 @@ Category: openwrt
 Tags: openwrt, scripting, wifi
 Slug: bootstrapping-openwrt-sysupgrade-snapshots
 Date: Thu Mar 24 00:58:27 EDT 2016
-Status: Published
+Status: published
 
 After [figuring out that the new Archer C7 comes with a different flash chip](https://www.reddit.com/r/openwrt/comments/4aukq9/help_archer_c7_v2_not_reachable_on_19216811_after/) that is not yet supported by an official release, I soon realized that it (the snapshot) does not come with all the bells and whistles that a normal release does; namely LuCI and ath10k firmware.
 

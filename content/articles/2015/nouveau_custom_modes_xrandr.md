@@ -3,7 +3,7 @@ Category: linux
 Tags: linux, nouveau, nvidia, vizio, xorg, X11
 Slug: nouveau-custom-modes-xrandr
 Date: Tue Nov  3 14:34:21 EST 2015
-Status: Published
+Status: published
 
 If you've found this intentionally, I don't have to explain why you want this infomation, so
 just skip down to the code snippet area. For everyone else, I'm sure you probably
