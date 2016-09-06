@@ -13,6 +13,8 @@ DNF_INSTALL=(
 	libjpeg-turbo-devel
 	zlib-devel
 	s3cmd	
+	redhat-rpm-config
+	gcc
 )
 
 # pip package install array
