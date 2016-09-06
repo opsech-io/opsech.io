@@ -5,13 +5,13 @@ from __future__ import unicode_literals
 AUTHOR = u'Mike'
 SITENAME = u'#> opsech.io'
 SITEURL = u''
-#SITEURL = u'https://opsech.io'
+# SITEURL = u'https://opsech.io'
 SITESUBTITLE = u'Random wanderings of a Linux traveller'
 
 PATH = 'content'
 PLUGIN_PATHS = ["plugins/pelican-plugins"]
-STATIC_PATHS = ['images','extra','favs']
-IGNORE_FILES = ['*.swp','*.kate-swp']
+STATIC_PATHS = ['images', 'extra', 'favs']
+IGNORE_FILES = ['*.swp', '*.kate-swp']
 PLUGINS = ["better_codeblock_line_numbering"]
 CHECK_MODIFIED_METHOD = "mtime"
 TIMEZONE = 'America/New_York'
@@ -22,7 +22,7 @@ ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}.html'
 PAGE_URL = 'pages/{slug}.html'
 PAGE_SAVE_AS = 'pages/{slug}.html'
 NEWEST_FIRST_ARCHIVES = True
-#FIGURE_NUMBERS = True
+# FIGURE_NUMBERS = True
 RESPONSIVE_IMAGES = True
 
 # https://github.com/ingwinlu/pelican-twitchy
@@ -31,8 +31,11 @@ PYGMENTS_STYLE = "monokai"
 BOOTSTRAP_THEME = "slate"
 SHARE = True
 CUSTOM_CSS = "extra/custom.css"
-SOCIAL = (('Bitbucket','https://bitbucket.org/xenithorb'),
-	('Github','https://github.com/xenithorb'))
+SOCIAL = (
+    ('Bitbucket', 'https://bitbucket.org/xenithorb'),
+    ('Github', 	  'https://github.com/xenithorb'),
+    ('Gitlab',    'https://gitlab.com/xenithorb')
+)
 EXPAND_LATEST_ON_INDEX = True
 DISQUS_LOAD_LATER = True
 DISPLAY_TAGS_ON_MENU = True
@@ -56,7 +59,7 @@ RELATIVE_URLS = True
 TYPOGRIFY = True
 
 # For better_codeblock_line_numbering plugin
-#MD_EXTENSIONS = [
+# MD_EXTENSIONS = [
 #    'codehilite(css_class=highlight,linenums=False)',
 #    'extra',
 #    ]
