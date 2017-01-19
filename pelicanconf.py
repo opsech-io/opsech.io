@@ -59,17 +59,11 @@ RELATIVE_URLS = True
 # Typogrify
 TYPOGRIFY = True
 
-# For better_codeblock_line_numbering plugin
-# MD_EXTENSIONS = [
-#    'codehilite(css_class=highlight,linenums=False)',
-#    'extra',
-#    ]
-
-from markdown.extensions.codehilite import CodeHiliteExtension
-from markdown.extensions.toc import TocExtension
-
-MD_EXTENSIONS = [
-    CodeHiliteExtension(css_class='highlight', linenums=False),
-    TocExtension(permalink=True),
-    'markdown.extensions.extra',
-]
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {
+            'css_class': 'highlight',
+            'linenums': False
+        }
+    }
+}
