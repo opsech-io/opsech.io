@@ -34,7 +34,8 @@ CUSTOM_CSS = "extra/custom.css"
 SOCIAL = (
     ('Bitbucket', 'https://bitbucket.org/xenithorb'),
     ('Github', 	  'https://github.com/xenithorb'),
-    ('Gitlab',    'https://gitlab.com/xenithorb')
+    ('Gitlab',    'https://gitlab.com/xenithorb'),
+    ('Email', 'mailto:mike=at=opsech.io'),
 )
 EXPAND_LATEST_ON_INDEX = True
 DISQUS_LOAD_LATER = True
