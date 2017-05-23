@@ -32,9 +32,9 @@ BOOTSTRAP_THEME = "slate"
 SHARE = True
 CUSTOM_CSS = "extra/custom.css"
 SOCIAL = (
-    ('Bitbucket', 'https://bitbucket.org/xenithorb'),
     ('Github', 	  'https://github.com/xenithorb'),
     ('Gitlab',    'https://gitlab.com/xenithorb'),
+    # ()'Bitbucket', 'https://bitbucket.org/xenithorb'),
     ('Email', 'mailto:mike=at=opsech.io'),
 )
 EXPAND_LATEST_ON_INDEX = True
