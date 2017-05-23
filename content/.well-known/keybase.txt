@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/xenithorb
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://opsech.io
+  * I am xenithorb (https://keybase.io/xenithorb) on keybase.
+  * I have a public key ASA6tAuN_Ww3nuVJWiVdOzT5ZrdTxNBCSBBXj3d9oc2pdwo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01203ab40b8dfd6c379ee5495a255d3b34f966b753c4d0424810578f777da1cda9770a",
+            "host": "keybase.io",
+            "kid": "01203ab40b8dfd6c379ee5495a255d3b34f966b753c4d0424810578f777da1cda9770a",
+            "uid": "eb746515be1b112b55f84370ae936219",
+            "username": "xenithorb"
+        },
+        "service": {
+            "hostname": "opsech.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.21"
+    },
+    "ctime": 1493226594,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1493226566,
+        "hash": "8cbde015ccb31f2bed287149f51a4d44b0fd5758d51d6bb27e5171383741cd324aa9b6fe0b4d1344828356c04a605211fcf36c3b0c5afedf347c9e41e38683fb",
+        "seqno": 1039760
+    },
+    "prev": "60579f0cd6ae6f3667851192128989c89467a80a4ba71ab4abbe6a83d31ab4ef",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgOrQLjf1sN57lSVolXTs0+Wa3U8TQQkgQV493faHNqXcKp3BheWxvYWTFAvN7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwM2FiNDBiOGRmZDZjMzc5ZWU1NDk1YTI1NWQzYjM0Zjk2NmI3NTNjNGQwNDI0ODEwNTc4Zjc3N2RhMWNkYTk3NzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwM2FiNDBiOGRmZDZjMzc5ZWU1NDk1YTI1NWQzYjM0Zjk2NmI3NTNjNGQwNDI0ODEwNTc4Zjc3N2RhMWNkYTk3NzBhIiwidWlkIjoiZWI3NDY1MTViZTFiMTEyYjU1Zjg0MzcwYWU5MzYyMTkiLCJ1c2VybmFtZSI6Inhlbml0aG9yYiJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoib3BzZWNoLmlvIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMjEifSwiY3RpbWUiOjE0OTMyMjY1OTQsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ5MzIyNjU2NiwiaGFzaCI6IjhjYmRlMDE1Y2NiMzFmMmJlZDI4NzE0OWY1MWE0ZDQ0YjBmZDU3NThkNTFkNmJiMjdlNTE3MTM4Mzc0MWNkMzI0YWE5YjZmZTBiNGQxMzQ0ODI4MzU2YzA0YTYwNTIxMWZjZjM2YzNiMGM1YWZlZGYzNDdjOWU0MWUzODY4M2ZiIiwic2Vxbm8iOjEwMzk3NjB9LCJwcmV2IjoiNjA1NzlmMGNkNmFlNmYzNjY3ODUxMTkyMTI4OTg5Yzg5NDY3YTgwYTRiYTcxYWI0YWJiZTZhODNkMzFhYjRlZiIsInNlcW5vIjo4LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQNF7bIqTvESXyMsp76iQGPelFJigP3dK0qiJtNfjmTcozMS3x1g9xVDWL3UdpDYRnaFLCIKFT+aMW9Q1FL43fAmoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCCW7GvTnVb1kk0ZOv1frd8+Ji+opq20LQQ3MjO/+Cp6sqN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/xenithorb
+
+==================================================================

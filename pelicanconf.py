@@ -10,7 +10,7 @@ SITESUBTITLE = u'Random wanderings of a Linux traveller'
 
 PATH = 'content'
 PLUGIN_PATHS = ["plugins/pelican-plugins"]
-STATIC_PATHS = ['images', 'extra', 'favs']
+STATIC_PATHS = ['images', 'extra', 'favs', '.well-known']
 IGNORE_FILES = ['*.swp', '*.kate-swp']
 PLUGINS = ["better_codeblock_line_numbering"]
 CHECK_MODIFIED_METHOD = "mtime"
