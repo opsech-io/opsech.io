@@ -3,6 +3,7 @@ Category: docker
 Tags: linux, fedora, docker, dns, NetworkManager, firewalld
 Slug: docker-dns-with-firewalld-on-fedora
 Summary: How to allow docker to use the local system DNS cache (dnsmasq) because otherwise docker defaults to using Google DNS
+Modified: Thu Jun 1 19:28:04 EDT 2017
 Date: Tue May 23 14:17:17 EDT 2017
 Status: published
 
@@ -26,21 +27,21 @@ By default docker reads in the host's `/etc/resolv.conf` file and if it only con
 
 +   Restart the docker engine with `sudo systemctl restart docker.service`.
 
-+   The next step is to lead off of the instructions [here][1] and configure the dnsmasq process that NetworkManager runs to listen to the local docker subnet. The following needs to be placed in `/etc/NetworkManager/dnsmasq.d/docker-bridge.conf`
++   The next step is to lead off of the instructions [here][1] and configure the dnsmasq process that NetworkManager runs to listen to the local docker interface. The following needs to be placed in a `.conf` file in `/etc/NetworkManager/dnsmasq.d/`, for example `docker-bridge.conf`:
 
         :::txt
-        listen-address=172.17.0.1
+        interface=docker0
 
-    This is telling `dnsmasq` - specifically the one started from NetworkManager - to listen on the subnet `docker0` is attached to. Please adjust accordingly if you're not using dnsmasq in conjunction with NetworkManager (It is not configured this way by default, see [here][1])
+    This is telling `dnsmasq` - specifically the one started from NetworkManager - to listen on the interface `docker0`. Please adjust accordingly if you're not using dnsmasq in conjunction with NetworkManager (It is not configured this way by default, see [here][1])
 
-+   Restart NetworkManager with `sudo systemctl restart NetworkManager.service`.
++   Restart NetworkManager with `sudo systemctl restart NetworkManager.service`. (Restarting NetworkManager causes `dnsmasq` to also be restarted.)
 
-+   The final step is only necessary if you're using FirewallD (or translate yourself for iptables). What we want to do is add a zone for docker, then assign the `docker0` interface to that zone, then finally add a valid source to that zone (**because firewalld will not activate a zone without a valid source or interface it recognizes**. In this case `docker0` is managed by NetworkManager, so firewalld ignores it when activating zones):
++   The final step is only necessary if you're using FirewallD (or translate yourself for iptables). What we want to do is add a zone for docker, then assign the `docker0` interface to that zone, then finally add a valid source to that zone (**because firewalld will not activate a zone without a valid source or interface it recognizes**. In this case `docker0` is managed by NetworkManager, so firewalld ignores it when activating zones). Additionally, the source here must be `172.0.0.0/8` to cover any additional `docker network create` networks later on (new bridge networks):
 
         :::bash
         sudo firewall-cmd --permanent --new-zone=docker
         sudo firewall-cmd --permanent --zone=docker --add-interface=docker0
-        sudo firewall-cmd --permanent --zone=docker --add-source=172.17.0.1/16
+        sudo firewall-cmd --permanent --zone=docker --add-source=172.0.0.0/8
         sudo firewall-cmd --permanent --zone=docker --add-service=dns
         sudo firewall-cmd --reload
 
@@ -51,7 +52,7 @@ By default docker reads in the host's `/etc/resolv.conf` file and if it only con
           target: default
           icmp-block-inversion: no
           interfaces: docker0
-          sources: 172.17.0.1/16
+          sources: 172.0.0.0/8
           services: dns
           ports:
           protocols:
@@ -61,7 +62,7 @@ By default docker reads in the host's `/etc/resolv.conf` file and if it only con
           icmp-blocks:
           rich rules:
 
-+   You should now be able to run any docker container and it should be able to use your local dns, confirm with:
++   You should now be able to run any docker container on any docker bridge network, and it should be able to use your local dns. Confirm with:
 
         :::bash
         docker run -it --rm busybox sh -c 'cat /etc/resolv.conf && echo && nslookup opsech.io'
