@@ -2,7 +2,12 @@ Title: How to mount VM disk images on Fedora
 Category: linux
 Tags: linux, fedora, qemu, virt
 Date: Wed Jun 7 19:18:00 EDT 2017
+Summary: There are two ways to currently mount disk images on Linux. Both of them involve using QEMU in different aspects. Both of them support the image formats that are supported by QEMU itself ...
 Status: published
+
+[TOC]
+
+---
 
 There are two ways to currently mount disk images on Linux. Both of them involve using QEMU in different aspects. Both of them support the image formats that are supported by QEMU itself. I won't enumerate that list, but for practical sake, it's whatever images you're used to working with when using hypervisors like VirtualBox, Hyper-V, KVM, et al.
 
@@ -156,6 +161,7 @@ See: `--live` at the [guestmount man page](https://linux.die.net/man/1/guestmoun
 
     1.  Manually start the rescue shell:
 
+            ::text
             virt-rescue -a Windows.vdi
             ...
             ...
@@ -168,6 +174,7 @@ See: `--live` at the [guestmount man page](https://linux.die.net/man/1/guestmoun
 
     +   Use `ntfsfix` to reset the filesystem:
 
+            ::text
             ><rescue> ntfsfix /dev/sda2
             Mounting volume... The disk contains an unclean file system (0, 0).
             Metadata kept in Windows cache, refused to mount.
@@ -188,6 +195,7 @@ See: `--live` at the [guestmount man page](https://linux.die.net/man/1/guestmoun
 
     1.  After `qemu-nbd -c /dev/nbd0 <image_file>` do the following:
 
+            ::text
             $ ntfsfix /dev/nbd0p2
             Mounting volume... The disk contains an unclean file system (0, 0).
             Metadata kept in Windows cache, refused to mount.
