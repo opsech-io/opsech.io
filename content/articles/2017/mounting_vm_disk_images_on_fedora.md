@@ -132,9 +132,11 @@ See: `--live` at the [guestmount man page](https://linux.die.net/man/1/guestmoun
         $ sudo qemu-nbd -d /dev/nbd0
         $ sudo modprobe -r nbd
 
-### Caveats:
+### Caveats
 
-1.  **libguestfs: error: invalid value for backingformat parameter 'vdi':** For reasons unknown to me, `libguestfs`'s tools sometimes work fine with images other than `qcow2` and `raw`, and sometimes not. For example, `virt-rescue` and `guestmount` seem to work with most image formats, but `virt-filesystems` seems to support only the abovementioned two. In case you run up agasint this when intending to use `libguestfs-tools`, use `virt-rescue` instead and utilize the rescue shell to enumerate partitions as described during 1. on the next caveat.
+1.  **libguestfs: error: invalid value for backingformat parameter 'vdi':** Edit: Actually, this is [a bug that I apparently found and reported on IRC that was fixed here](https://www.redhat.com/archives/libguestfs/2017-June/msg00043.html), thanks to Richard Jones for fixing it! The gist is that it was caused by a stringent whitelist that didn't account for all image types.
+
+    <s>For reasons unknown to me</s> `libguestfs`'s tools sometimes work fine with images other than `qcow2` and `raw`, and sometimes not. For example, `virt-rescue` and `guestmount` seem to work with most image formats, but `virt-filesystems` seems to support only the abovementioned two. In case you run up agasint this when intending to use `libguestfs-tools`, use `virt-rescue` instead and utilize the rescue shell to enumerate partitions as described during 1. on the next caveat.
 
 +   **Read only file system:** You may get to the point after you mount the filesystem, especially with ones like `ntfs`, where the dirty bit has been set by an unclean shutdown and the surrogate ad-hoc virtual machine that is created by `guestmount` mounts it read-only under the hood forcefully. This is very hard to notice unless you add `-v | --verbose` to `guestmount`, and then you can clearly see what is going on (by contrast with method 2, when you go to manually mount it will be quite evident). Amidst all the other output, you should find toward the end:
 
