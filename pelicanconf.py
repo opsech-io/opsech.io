@@ -67,5 +67,8 @@ MARKDOWN = {
         },
         'markdown.extensions.extra': {},
         'markdown.extensions.fenced_code': {},
+        'markdown.extensions.toc': {
+            'anchorlink': True
+        },
     }
 }
