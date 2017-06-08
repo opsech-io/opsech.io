@@ -12,7 +12,7 @@ Perhaps you're in a situation where you need to mount an image to extract someth
 
 Perhaps you have a failing hard drive that is dubious at best with transferring large amounts of data at once. You could attempt to use `rsync -P` and chip away at transferring the image, in hopes that it runs and has your data intact on the destination, or you could mount it as described below and target the important data immediately.
 
-### Notes:
+### Notes
 
 If `libguestfs-tools` are available on your operating system, I would suggest going with this method as it was specifically intended to be used for the aforementioned task. The latter method is more of a hack taking advantage of the NBD protocol.
 
@@ -24,7 +24,7 @@ The following method (#1) also has the ability to attach to a live system. This 
 
 See: `--live` at the [guestmount man page](https://linux.die.net/man/1/guestmount) for more information.
 
-### Easiest method using libguestfs-tools:
+### Easiest method using libguestfs-tools
 
 1.  Install `libguestfs-tools`:
 
@@ -62,7 +62,7 @@ See: `--live` at the [guestmount man page](https://linux.die.net/man/1/guestmoun
         $ cd # in case we're in /mnt/point
         $ sudo guestunmount /mnt/point
 
-### Harder method using `qemu-nbd`:
+### Harder method using `qemu-nbd`
 
 1.  Start off by installing `qemu-img` and `nbd` packages:
 
@@ -131,3 +131,75 @@ See: `--live` at the [guestmount man page](https://linux.die.net/man/1/guestmoun
         $ sudo umount /mnt/point
         $ sudo qemu-nbd -d /dev/nbd0
         $ sudo modprobe -r nbd
+
+### Caveats:
+
+1.  **libguestfs: error: invalid value for backingformat parameter 'vdi':** For reasons unknown to me, `libguestfs`'s tools sometimes work fine with images other than `qcow2` and `raw`, and sometimes not. For example, `virt-rescue` and `guestmount` seem to work with most image formats, but `virt-filesystems` seems to support only the abovementioned two. In case you run up agasint this when intending to use `libguestfs-tools`, use `virt-rescue` instead and utilize the rescue shell to enumerate partitions as described during 1. on the next caveat.
+
++   **Read only file system:** You may get to the point after you mount the filesystem, especially with ones like `ntfs`, where the dirty bit has been set by an unclean shutdown and the surrogate ad-hoc virtual machine that is created by `guestmount` mounts it read-only under the hood forcefully. This is very hard to notice unless you add `-v | --verbose` to `guestmount`, and then you can clearly see what is going on (by contrast with method 2, when you go to manually mount it will be quite evident). Amidst all the other output, you should find toward the end:
+
+        ::text
+        commandrvf: mount -o  /dev/sda2 /sysroot/
+        [    0.982901] fuse init (API version 7.26)
+        The disk contains an unclean file system (0, 0).
+        Metadata kept in Windows cache, refused to mount.
+        Falling back to read-only mount because the NTFS partition is in an
+        unsafe state. Please resume and shutdown Windows fully (no hibernation
+        or fast restarting.)
+        guestfsd: main_loop: proc 74 (mount_options) took 0.13 seconds
+
+    In this case, use the `ntfsfix` command in order to make the filesystem properly mount. Be aware that this can be potentially dangerous, and the instructions to use windows for this should be heeded. That being said, I haven't really had any issues with it myself:
+
+    #### Using `ntfsfix` with option 1:
+
+    1.  Manually start the rescue shell:
+
+            virt-rescue -a Windows.vdi
+            ...
+            ...
+            ><rescue> lsblk
+            NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+            sdb      8:16   0    4G  0 disk /
+            sda      8:0    0   50G  0 disk
+            |-sda2   8:2    0 49.5G  0 part
+            `-sda1   8:1    0  500M  0 part
+
+    +   Use `ntfsfix` to reset the filesystem:
+
+            ><rescue> ntfsfix /dev/sda2
+            Mounting volume... The disk contains an unclean file system (0, 0).
+            Metadata kept in Windows cache, refused to mount.
+            FAILED
+            Attempting to correct errors...
+            Processing $MFT and $MFTMirr...
+            Reading $MFT... OK
+            Reading $MFTMirr... OK
+            Comparing $MFTMirr to $MFT... OK
+            Processing of $MFT and $MFTMirr completed successfully.
+            Setting required flags on partition... OK
+            Going to empty the journal ($LogFile)... OK
+            Checking the alternate boot sector... OK
+            NTFS volume version is 3.1.
+            NTFS partition /dev/sda2 was processed successfully.
+
+    #### Using `ntfsfix` with option 2:
+
+    1.  After `qemu-nbd -c /dev/nbd0 <image_file>` do the following:
+
+            $ ntfsfix /dev/nbd0p2
+            Mounting volume... The disk contains an unclean file system (0, 0).
+            Metadata kept in Windows cache, refused to mount.
+            FAILED
+            Attempting to correct errors...
+            Processing $MFT and $MFTMirr...
+            Reading $MFT... OK
+            Reading $MFTMirr... OK
+            Comparing $MFTMirr to $MFT... OK
+            Processing of $MFT and $MFTMirr completed successfully.
+            Setting required flags on partition... OK
+            Going to empty the journal ($LogFile)... OK
+            Checking the alternate boot sector... OK
+            NTFS volume version is 3.1.
+            NTFS partition /dev/nbd0p2 was processed successfully.
+
+    You should then be able to (with both methods) mount the `ntfs` filesystem read-write and continue on.
