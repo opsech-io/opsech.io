@@ -83,3 +83,8 @@ Now you know you need to remove `MD5` from the list of banned algorithms:
      # (SSL/TLS) processing
 
 Yes, as suggested by the changelog entry this is less than ideal, but I've accepted it as a calculated risk, given that I _only_ use java for this one specific application.
+
+Since this location is bound to change often, the following command will aid in editing that file:
+
+    ::bash
+    sudo find /usr/lib/jvm -type f -name 'java.security' -exec sed -i '/jdk.jar.disabledAlgo/s/ MD5,//' '{}' \;
