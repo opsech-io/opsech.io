@@ -25,7 +25,9 @@ CLOUDFILES_CONTAINER=my_cloudfiles_container
 
 DROPBOX_DIR=~/Dropbox/Public/
 
-GITHUB_PAGES_BRANCH=gh-pages
+GITHUB_PAGES_BRANCH=
+GITHUB_PAGES_ORG=opsech-io
+GITHUB_PAGES_REPO=${GITHUB_PAGES_ORG}.github.io
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -117,8 +119,14 @@ s3_upload: publish
 cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
-github: publish
-	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	git push origin $(GITHUB_PAGES_BRANCH)
+github: html
+	if [ ! -d "../${GITHUB_PAGES_REPO}" ]; then git clone "git@github.com:${GITHUB_PAGES_ORG}/${GITHUB_PAGES_REPO}" "../${GITHUB_PAGES_REPO}"; fi
+	rsync -a --delete --exclude CNAME --exclude .git "./output/." "../${GITHUB_PAGES_REPO}/."
+	cd "../${GITHUB_PAGES_REPO}"; \
+	git add -A; \
+	git commit -m "Github Pages Update `date +%F-%H:%M`"; \
+	git push -f;
 
-.PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
+finalize: s3_upload github
+
+.PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github finalize
