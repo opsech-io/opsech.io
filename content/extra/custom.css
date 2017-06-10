@@ -112,7 +112,7 @@ hr {
 // Holy fuck here we go now themeing Github Gists :|
 //
 .highlight pre .s, .gist .highlight, .gist .blob-code-inner {
-	color: #e6db74 !important; 
+	color: #e6db74 !important;
 }
 
 .gist .highlight, .gist-meta, .gist-data {
@@ -137,7 +137,16 @@ hr {
 .gist .pl-s, .pl-pds {
 	color: rgb(102, 217, 239) !important;
 }
- 
+
 .gist-file {
 	border: 1px solid #666 !important;
+}
+
+/* Display post-info on new line (date, tags, etc) */
+.post-info {
+    display: block;
+}
+
+.publish-info-block {
+    margin-top: 5px;
 }
