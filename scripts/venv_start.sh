@@ -5,4 +5,14 @@
 #
 # Start the python virtualenv, or source it in scripts:
 #
-source ~/virtualenvs/pelican/bin/activate
+
+venvwrap_path=$( command -v virtualenvwrapper.sh )
+
+if [[ "$venvwrap_path" ]]; then
+	source "$venvwrap_path"
+	workon pelican
+elif [[ -x ~/.virtualenvs/pelican/bin/activate ]]; then
+	source ~/.virtualenvs/pelican/bin/activate
+elif [[ -x ~/virtualenvs/pelican/bin/activate ]]; then
+	source ~/virtualenvs/pelican/bin/activate
+fi
